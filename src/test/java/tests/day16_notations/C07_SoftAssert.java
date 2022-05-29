@@ -1,4 +1,4 @@
-package day16_notations;
+package tests.day16_notations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -48,9 +48,23 @@ public class C07_SoftAssert extends TestBase {
 
         // 10. soft assert kullanarak DropDown listesinin su secenekleri oldugunu test edin "Select One", "Australia (dollar)", "Canada (dollar)","Switzerland (franc)","China (yuan)","Denmark (krone)","Eurozone (euro)","Great Britain (pound)","Hong Kong (dollar)","Japan (yen)","Mexico (peso)","Norway (krone)","New Zealand (dollar)","Sweden (krona)","Singapore (dollar)","Thailand (baht)"
         List<WebElement> optionList = select.getOptions();
-        optionList.stream().map(WebElement::getText).collect(Collectors.toList()).forEach(System.out::println);
 
+        List<String> actualList = new ArrayList<>();
+        for (WebElement each : optionList) {
+         if (!actualList.contains(each)){
+             actualList.add(each.getText());
+         }
 
+        }
+        System.out.println("actualList : " + actualList);
+
+        List<String> expectedList = new ArrayList<>(Arrays.asList("Select One", "Australia (dollar)", "Canada (dollar", "Switzerland (franc)", "China (yuan)", "Denmark (krone)", "Eurozone (euro)", "Great Britain (pound)", "Hong Kong (dollar)", "Japan (yen)", "Mexico (peso)", "Norway (krone)", "New Zealand (dollar)", "Sweden (krona)", "Singapore (dollar)", "Thailand (baht)"));
+
+        System.out.println("excepted List ==> " + expectedList);
+
+        softAssert.assertEquals(actualList, expectedList);
+
+        //softAssert.assertAll();
     }
 }
 
