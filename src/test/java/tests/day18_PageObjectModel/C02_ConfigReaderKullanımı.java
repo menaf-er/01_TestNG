@@ -26,7 +26,7 @@ public class C02_ConfigReaderKullanımı {
 
         // kullanici sifre kutusuna yanlis password yazdirin
 
-        facebookPage.passwordBox.sendKeys(ConfigReader.getProperty("123456"));
+        facebookPage.passwordBox.sendKeys(ConfigReader.getProperty("facebookWrongPassword"));
 
         // login butonuna basin
 
