@@ -5,7 +5,7 @@ import utilities.Driver;
 
 public class C01_NewDriverFirstClass {
 
-    @Test
+    @Test(groups = "grup1")
     public void test01() {
         Driver.getDriver().get("htts://www.amazon.com");
          /*
