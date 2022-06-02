@@ -3,6 +3,7 @@ package tests.day19_smokeTest;
 import org.testng.annotations.Test;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class C01_PozitifLoginTEst {
 
@@ -12,5 +13,6 @@ public class C01_PozitifLoginTEst {
         Driver driver1 = new Driver();
 
         driver1.getDriver().get(ConfigReader.getProperty("amazonURL"));
+
     }
 }
